@@ -1,0 +1,41 @@
+This is the Type of the Output or the Dictionary format recieved upon the search in arxiv
+
+{
+    'id': 'http://arxiv.org',          # The unique entry URL
+    'guidislink': True,                                
+    'link': 'http://arxiv.org',        # URL link to the abstract page
+    'updated': '2026-02-15T18:30:00Z',                  # Last modified timestamp
+    'updated_parsed': time.struct_time(...),            # Python time-object tuple
+    'published': '2026-02-10T14:22:15Z',                # Original submission timestamp
+    'published_parsed': time.struct_time(...),          
+    'title': 'An Analysis of Deep Learning Architecture Implementations.', 
+    'summary': 'This paper presents an empirical evaluation of...', # The abstract
+    
+    # Authors are structured as a list of sub-dictionaries
+    'authors': [
+        {'name': 'Jane Doe'},
+        {'name': 'John Smith', 'arxiv_affiliation': 'Stanford University'}
+    ],
+    'author_detail': {'name': 'Jane Doe'},              # The primary author detail
+    'author': 'Jane Doe',                               # String representation of primary author
+    
+    # Links to the PDF and abstract pages
+    'links': [
+        {'href': 'http://arxiv.org', 'rel': 'alternate', 'type': 'text/html'},
+        {'href': 'http://arxiv.org', 'rel': 'related', 'type': 'application/pdf'}
+    ],
+    
+    # arXiv-specific namespace attributes (Prefixed keys mapped by feedparser)
+    'arxiv_comment': '12 pages, 4 figures, published in IEEE', 
+    'arxiv_primary_category': {'term': 'cs.LG', 'scheme': 'http://arxiv.org/schemas/atom'},
+    
+    # Subject classifications (Both primary and cross-lists)
+    'tags': [
+        {'term': 'cs.LG', 'scheme': 'http://arxiv.org/schemas/atom', 'label': None},
+        {'term': 'cs.AI', 'scheme': 'http://arxiv.org/schemas/atom', 'label': None}
+    ],
+    
+    # Optional fields (Present only if the author provided them)
+    'arxiv_doi': '10.1007/s00190-023-01710-1',         # Digital Object Identifier
+    'arxiv_journal_ref': 'Journal of Machine Learning, vol. 24, pp. 1-12'
+}
